@@ -1,0 +1,12 @@
+[Unit]
+Description=Panther Security Site Trust
+ConditionPathExists=/usr/bin/sitetrust.sh
+
+[Service]
+ExecStart=/usr/bin/sitetrust.sh
+StandardOutput=file:/home/pcrfuel/Radiant/FastPoint/Log/sitetrust.service.log
+ExecStartPre=/bin/sh -c '/bin/echo $(date "+%c") Started fim Daemon. >> /home/pcrfuel/Radiant/FastPoint/Log/sitetrust.service.log' 
+ExecStopPost=/bin/sh -c '/bin/echo $(date "+%c") Stopped fim Daemon. >> /home/pcrfuel/Radiant/FastPoint/Log/sitetrust.service.log'
+
+[Install]
+WantedBy=multi-user.target
